@@ -39,7 +39,7 @@
                   @csrf
                   <a href="/logout"
                   class="nav-link"
-                  onclick="event.preventDefault();git 
+                  onclick="event.preventDefault();
                   this.closest('form').submit();">
                   Sair
                   </a>
