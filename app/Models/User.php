@@ -21,7 +21,7 @@ class User extends Authenticatable
     /**
      * The attributes that are mass assignable.
      *
-     * @var string[]
+     * @var array
      */
     protected $fillable = [
         'name',
@@ -30,7 +30,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * The attributes that should be hidden for arrays.
      *
      * @var array
      */
@@ -42,7 +42,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast.
+     * The attributes that should be cast to native types.
      *
      * @var array
      */
@@ -59,7 +59,12 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function events(){
+    public function events() {
         return $this->hasMany('App\Models\Event');
     }
+
+    public function eventsAsParticipant() {
+        return $this->belongsToMany('App\Models\Event');
+    }
+
 }
